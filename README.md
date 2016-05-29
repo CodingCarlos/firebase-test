@@ -4,9 +4,9 @@ Un repositorio para colgar las pruebas de firebase. El proceso despiezado está 
 ## Funciones utilizadas
 Listado de funciones utilizadas, y breve documentación sobre ellas:
 
-- new Firebase
-- .child()
-- .push()
+- [new Firebase](#new-firebase)
+- [.child()](#child)
+- [.push()](#push)
 
 
 ### new Firebase
