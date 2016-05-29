@@ -20,18 +20,21 @@ var Firebase = new Firebase("https://flickering-heat-9903.firebaseio.com/"); // 
 		Firebase.child("notes").on("value", function(snapshot) {
 			
 			var note = snapshot.val();
+			var notesUpdated = []	// To avoid duplicity in lists, create a new array
 
 			// For each note
 			for (var key in note) {
 				
 				// Add it to array
-				notes.push({
+				notesUpdated.push({
 					title: note[key].title,
 					content: note[key].content,
 					key: note[key].key
 				});
 			}
 
+			// And before call refreshList(), update the notes array
+			notes = notesUpdated;
 			refreshList();
 		});
 
@@ -174,7 +177,7 @@ var Firebase = new Firebase("https://flickering-heat-9903.firebaseio.com/"); // 
 		}
 
 		// Push the note to notes array
-		notes.push(note);
+		// notes.push(note);
 
 		// Add note to firebase
 		var FirebaseNotes = Firebase.child("notes");
